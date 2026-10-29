@@ -1,26 +1,52 @@
 # LEGO Nintendo Switch Theme
 
-> **Work in progress — experimental HOME package only.** This is not the complete multi-screen theme and has not been tested on a Nintendo Switch. Do not treat it as a final release.
+An unofficial fan-made LEGO-inspired background theme for the original Nintendo Switch family. Seven separate NXTheme packages retain the system's stock layout; icons and navigation are not replaced.
 
-![Original HOME artwork](artwork/lego-home.jpg)
+[فارسی](README_FA.md) · [Download complete ZIP](dist/LEGO-Nintendo-Switch-Theme.zip) · [Individual themes](themes/) · [Checksums](dist/SHA256SUMS.txt)
 
-An unofficial fan-made theme concept for the original Nintendo Switch family. The original AI-generated art and its 1280 × 720 baseline JPEG export are included. The current HOME package uses the stock system layout; the image is not an actual console screenshot. No Nintendo system files are distributed.
+## Concept previews
 
-## Status
+These are **composited conceptual mockups**, not screenshots from a console. Icons, labels and placement are illustrative; actual firmware and system settings can look different.
 
-- HOME background: experimental NXThemes 3 ZIP-format package in `themes/`.
-- Lock, all applications, profile, settings, news and player select: **not yet designed or packaged**.
-- NxThemeTool validation: pending. Console installation, compatibility, contrast and usability: **not tested**.
-- Release and complete package: not available.
+![HOME concept](previews/home-concept.jpg)
+![Lock concept](previews/lock-concept.jpg)
+![Games concept](previews/apps-concept.jpg)
+![Profile concept](previews/user-concept.jpg)
+![Settings concept](previews/set-concept.jpg)
 
-## Compatibility and installation
+## Theme parts
 
-Requires a compatible original Switch, Switch Lite or Switch OLED with Atmosphère and NXThemes Installer. Switch 2 is not supported or tested. Firmware and layout compatibility cannot be guaranteed without testing. Check the [installer release notes](https://github.com/exelix11/SwitchThemeInjector/releases) for current firmware and patch requirements. Back up your SD card and remove themes before updating firmware. The upstream project documents installation and recovery: https://github.com/exelix11/SwitchThemeInjector
+| Screen | File | Artwork |
+|---|---|---|
+| HOME | [LEGO-Home](themes/LEGO-Home.nxtheme) | City |
+| Lock | [LEGO-Lock](themes/LEGO-Lock.nxtheme) | Space station |
+| All software | [LEGO-Games](themes/LEGO-Games.nxtheme) | Construction |
+| Profile | [LEGO-Profile](themes/LEGO-Profile.nxtheme) | Explorer |
+| Settings | [LEGO-Settings](themes/LEGO-Settings.nxtheme) | Gears |
+| News | [LEGO-News](themes/LEGO-News.nxtheme) | Construction, reused |
+| Player select | [LEGO-Player-Select](themes/LEGO-Player-Select.nxtheme) | Explorer, reused |
 
-## Rebuild
+## Compatibility and validation
 
-Run `python3 scripts/build_home.py` with Pillow installed. Verify with `NxThemeTool validate themes/LEGO-HOME-EXPERIMENTAL.nxtheme`. This project does not bundle NxThemeTool. `artwork/lego-home-original.png` is the generated source image and `artwork/lego-home.jpg` is the installer-sized image. The original has no editable 3D scene or layered source.
+Targets Switch, Switch OLED and Switch Lite running compatible Atmosphère CFW and NXThemes Installer 3.0 or newer. Switch 2 is not targeted. Upstream 3.0.2 release notes state support for firmware 23.0 / 23.0.1 with Atmosphère 1.12.1 or newer; check [upstream releases](https://github.com/exelix11/SwitchThemeInjector/releases) for current firmware and patch requirements. This project has **not been installed on hardware**; readability, layout and compatibility with any particular firmware are unverified.
 
-LEGO and Nintendo are trademarks of their respective owners. This unofficial fan project is not affiliated with or endorsed by either company. Artwork is AI-generated. Tooling credit: [SwitchThemeInjector / NXThemes Installer](https://github.com/exelix11/SwitchThemeInjector).
+Built and validated with NxThemeTool from upstream commit `66ccc56c6370908cbc1b09059122004cbb6ee605` (ThemesCommon 4.9): pack and validate reported no warnings on all seven files. ZIP integrity, manifests and JPEG dimensions were also checked. No proprietary SZS files are included. Artwork is AI-generated raster imagery; editable 3D scenes are not available. No custom layout patches or modified application icons are included.
 
-[فارسی](README_FA.md)
+## Installation
+
+1. Back up the SD card and ensure compatible CFW, installer and patches are installed. Remove themes before firmware updates.
+2. Extract the ZIP and copy the `.nxtheme` files to `/themes/` on the SD card.
+3. Open NXThemes Installer, install desired parts, and reboot. For system-data extraction and current steps consult the [upstream guide](https://github.com/exelix11/SwitchThemeInjector).
+4. If the console fails to boot, follow upstream recovery instructions; uninstall normally from the installer.
+
+## Build
+
+Install Python 3 with Pillow, .NET 8 and [NxThemeTool](https://github.com/exelix11/SwitchThemeInjector). On Linux/macOS run `DOTNET=dotnet NXTHEME_TOOL=/path/to/NxThemeTool.dll python3 scripts/build.py`, substituting the correct DLL path. Alternatively set `NXTHEME_TOOL` to its executable and omit `DOTNET`. The script exports baseline JPEGs, invokes the official packer and validator, verifies archives, creates the ZIP and writes SHA-256 checksums. `python3 scripts/previews.py` regenerates the mockups and requires DejaVu Sans fonts.
+
+`artwork/originals/` contains original generated images; `artwork/backgrounds/` contains the exports; `scripts/` contains build and preview code; `previews/` has conceptual mockups; `themes/` has individual files; `dist/` has the bundle and checksums. `INSTALL.txt` provides short instructions.
+
+## Troubleshooting and credits
+
+If installation fails, check installer and firmware compatibility and current patches. If text overlaps artwork, uninstall that part. When updating firmware remove themes first; see the upstream guide for recovery and the SD-card path. No Nintendo system data is distributed here.
+
+Created for Amir Saeid Dehghan. AI-generated art; mockups are illustrative. Packer and installer: [exelix11 / SwitchThemeInjector](https://github.com/exelix11/SwitchThemeInjector). LEGO and Nintendo are trademarks of their respective owners. This unofficial fan project is not affiliated with or endorsed by either company.

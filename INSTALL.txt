@@ -1,0 +1,7 @@
+LEGO Nintendo Switch Theme — unofficial fan project
+Requires original Switch / OLED / Lite running compatible Atmosphere CFW and NXThemes Installer 3.0 or newer. Not for Switch 2. No on-console testing has been performed.
+1. Back up your SD card. Check the upstream installer release notes for your firmware and update CFW/patches as needed.
+2. Copy the .nxtheme files into /themes/ on your SD card.
+3. Open NXThemes Installer and install the desired parts individually, then reboot.
+4. Remove themes in the installer before a system update. If boot fails, consult upstream recovery instructions; their README documents deleting the qlaunch LayeredFS folder from the SD card.
+Upstream: https://github.com/exelix11/SwitchThemeInjector
